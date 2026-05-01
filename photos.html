@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventix - Photos & Inspiration</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="photos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar" id="main-nav">
+        <div class="container nav-container">
+            <div class="nav-side nav-left">
+                <div class="logo">𝐄𝐯𝐞𝐧𝐭𝐢𝐱</div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="venues.html">Venues</a></li>
+                <li><a href="vendors.html">Vendors</a></li>
+                <li><a href="photos.html" class="active">Photos</a></li>
+            </ul>
+
+            <div class="nav-side nav-right">
+                <button class="btn-primary">Log In</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="photo-hero">
+        <div class="container hero-content">
+            <h1>Wedding Photos & Inspiration</h1>
+            <p>Explore over 2,000,000+ photos for your event</p>
+            <div class="photo-search-box">
+                <input type="text" placeholder="Search for bridal lehengas, decor ideas...">
+                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container section-padding">
+        <div class="inspiration-grid">
+            <div class="ins-card">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=600" alt="Real Weddings">
+                <div class="ins-overlay">
+                    <h3>Real Weddings</h3>
+                    <p>Browse photos from real events</p>
+                </div>
+            </div>
+
+            <div class="ins-card">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=600" alt="Decor Ideas">
+                <div class="ins-overlay">
+                    <h3>Decor Ideas</h3>
+                    <p>Trending themes and setups</p>
+                </div>
+            </div>
+
+            <div class="ins-card">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=600" alt="Bridal Wear">
+                <div class="ins-overlay">
+                    <h3>Bridal Wear</h3>
+                    <p>Lehengas, sarees, and more</p>
+                </div>
+            </div>
+
+            <div class="ins-card">
+                <img src="https://images.unsplash.com/photo-1519225495045-39565750ec76?auto=format&fit=crop&q=80&w=600" alt="Groom Wear">
+                <div class="ins-overlay">
+                    <h3>Groom Wear</h3>
+                    <p>Suits, Sherwanis, and Tuxes</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="loginModal">
+        <div class="login-card">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>Log In</h2>
+            <form>
+                <div class="input-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="text" placeholder="Email or Phone">
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn-login-submit">Log In</button>
+            </form>
+            <p class="signup-text">Don't have an account? <a href="#">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script src="re.js"></script>
+</body>
+</html>

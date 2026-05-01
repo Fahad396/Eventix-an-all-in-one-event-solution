@@ -1,0 +1,557 @@
+:root {
+  --primary-pink: #E72E77;
+  --dark-text: #2d2d2d;
+  --light-gray: #f4f4f4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.navbar {
+  background: #fff;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left { display: flex; align-items: center; gap: 40px; }
+
+.logo {
+  color: var(--primary-pink);
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--dark-text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-right { display: flex; align-items: center; gap: 20px; }
+
+.btn-primary {
+  background: var(--primary-pink);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Ensure the parent list item is the reference for positioning */
+.nav-menu li {
+  position: relative;
+  padding: 20px 0; /* Creates a hover bridge so menu doesn't disappear */
+}
+
+/* Hide Mega Menu by default */
+.mega-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Sits right below the navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border-top: 3px solid var(--primary-pink);
+  z-index: 1000;
+  padding: 30px;
+}
+
+/* Show on Hover */
+.nav-menu li:hover .mega-menu {
+  display: block;
+}
+
+.mega-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 40px;
+}
+
+.mega-title {
+  color: var(--primary-pink);
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.mega-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mega-col li {
+  padding: 8px 0 !important;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.mega-col li:hover {
+  color: var(--primary-pink);
+}
+
+/* Destination Grid Styling */
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.dest-card {
+  text-align: center;
+}
+
+.dest-card img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.dest-card span {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Modal Overlay Background */
+.modal-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 192, 203, 0.4); /* Pinkish transparent */
+  backdrop-filter: blur(8px); /* Blurry background effect */
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The Login Card */
+.login-card {
+  background: white;
+  width: 90%;
+  max-width: 850px;
+  height: 550px;
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Left Image Section */
+.login-image {
+  flex: 1;
+  background: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800') center/cover;
+  display: block;
+}
+
+/* Form Section */
+.login-form-container {
+  flex: 1;
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+}
+
+.heart-logo { font-size: 30px; color: #ff4d6d; }
+.brand-name { color: #ff4d6d; font-weight: bold; font-size: 28px; margin-bottom: 5px; }
+
+.input-group {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.input-group input {
+  background: transparent;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  outline: none;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.btn-login-submit {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(to right, #ff4d6d, #ff8e53); /* Image gradient */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.divider { margin: 20px 0; font-size: 12px; color: #ccc; }
+
+.social-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: white;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.security-text { font-size: 11px; color: #aaa; margin-top: 20px; }
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+  .login-image { display: none; }
+  .login-card { max-width: 400px; height: auto; }
+}
+
+/* Name Row for First/Last Name */
+.name-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Update the base image class */
+.login-image {
+  flex: 1;
+  height: 100%; 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+
+/* Update the specific signup image */
+.signup-image {
+  background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800');
+  background-color: transparent; 
+}
+
+/* Ensure the card has no internal padding on the image side */
+.login-card {
+  background: white;
+  width: 90%;
+  max-width: 850px;
+  height: 550px;
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden; /* This crops the image to the card's rounded corners */
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Social buttons side-by-side for Sign Up */
+.social-login-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.apple-black {
+  background: #1a1a1a !important;
+  color: white !important;
+}
+
+/* Styling the "Create Account" header specifically */
+.login-form-container h3 {
+  font-size: 20px;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+/* Link colors */
+.signup-text a {
+  color: #ff4d6d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  background: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1600');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+.hero-overlay {
+  background: rgba(0,0,0,0.3);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-content h1 { font-size: 48px; margin-bottom: 10px; }
+
+/* Find the .main-search class and update it to look like this */
+.main-search {
+  background: white;
+  padding: 8px;
+  border-radius: 50px;
+  display: flex;
+  margin: 30px auto 0; /* Changed from 'margin-top: 30px' to center it */
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Added a slight shadow for depth */
+}
+
+.main-search select, .main-search input {
+  border: none;
+  padding: 12px 20px;
+  outline: none;
+  font-size: 14px;
+}
+
+.main-search select { border-right: 1px solid #ddd; border-radius: 50px 0 0 50px; color: #666;}
+.main-search input { flex-grow: 1; color: #333;}
+
+.main-search button {
+  background: var(--primary-pink);
+  color: white;
+  border: none;
+  padding: 0 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Categories */
+.section-padding { padding: 60px 0; }
+.section-title { margin-bottom: 30px; font-size: 24px; }
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.cat-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.cat-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid white;
+  object-fit: cover;
+}
+
+.blue-bg { background: #f0f7ff; }
+.orange-bg { background: #fff9f0; }
+.pink-bg { background: #fff0f5; }
+
+/* App Section */
+.app-section { background: #fff0f5; padding: 80px 0; }
+.app-flex { display: flex; align-items: center; justify-content: space-around; }
+
+.app-text h2 { color: var(--primary-pink); font-size: 32px; margin-bottom: 20px; }
+
+.features { list-style: none; margin-bottom: 30px; }
+.features li { margin-bottom: 10px; font-weight: 500; color: #444; }
+.features i { color: #4CAF50; margin-right: 10px; }
+
+.app-buttons { display: flex; gap: 15px; }
+
+.store-btn {
+  background: black;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.store-btn i { font-size: 24px; }
+.store-btn span { font-size: 10px; line-height: 1.2; }
+.store-btn b { font-size: 14px; }
+
+.app-image img {
+  width: 250px;
+  transform: rotate(10deg);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+.footer { padding: 60px 0 20px; border-top: 1px solid #eee; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+
+.footer-col h4 { margin-bottom: 20px; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; color: #666; font-size: 14px; cursor: pointer; }
+
+.social-icons { display: flex; gap: 15px; color: #666; font-size: 18px; }
+
+.newsletter input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.newsletter button {
+  width: 100%;
+  background: var(--primary-pink);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* vendors-menu */
+
+/* Update the general mega-menu width to accommodate more columns */
+.mega-menu {
+  width: 1000px; /* Increased width for 4 columns */
+  padding: 25px;
+  /* Existing styles for display, position, etc. stay the same */
+}
+
+/* Update the grid to 4 equal columns for the vendor layout */
+.vendor-menu .mega-container {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Styling for the titles within the columns */
+.mega-col .mega-title {
+  font-size: 14px;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  text-transform: none; /* Matches the screenshot's casing */
+}
+
+/* Ensure the first title in a column doesn't have extra top margin */
+.mega-col .mega-title:first-child {
+  margin-top: 0;
+}
+
+/* Subtle styling for the list items */
+.mega-col li {
+  font-size: 13px;
+  color: #666;
+  padding: 4px 0 !important;
+}
+
+/* photos */
+
+/* Specific layout for the Photo Mega Menu */
+.photo-menu .mega-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Give more space to the image grid */
+  gap: 30px;
+}
+
+.photo-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.photo-cat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.photo-cat-item:hover {
+  background: #f8f8f8;
+}
+
+.photo-cat-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.photo-cat-item span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+/* photos */
